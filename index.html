@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Magma noticias-Inicio</title>
+<style>
+* {
+box-sizing: border-box;margin: 0; padding: 0;
+}
+body {
+background-color: #121212; color:  #E0E0E0; font-family: Arial, sans-serif; padding: 40px 20px; display: flex; flex-direction: column; aling-items: center; min-height: 100vh;
+}
+header {
+margin-bottom: 40px; teaxt-aling: center;
+}
+h1 {
+color: #FF5500; text-transform: uppercase; font-size: 2.2rem; letter-spacing: 1px;
+}
+.grid-cuadros{
+display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; width: 100%;
+}
+.tarjeta-stream{
+background-color: #1E1E1E; border:  2px solid #2A2A2A; border-radius: 12px; overflow: hidden; transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.tarjeta-streams: horver{
+transform: translate(-6px); border-color: #FF5500; box-shadow: 0 8px 24px rgba(255, 85, 0, 0.2);
+}
+.tarjeta-stream a {
+text-decoration: none; color: inherit; display: block;
+}
+.tarjeta-stream img {
+width: 100%;  height: 220px; object-fit: cover;  display: block;
+}
+. tarjeta-info { 
+padding: 20px; background-color: #181818; text-aling: center;
+}
+. tarjeta-info h2  }
+font-size: 1.15rem; color: #FFFFFF; margin-bottom: 8px; text-transform: uppercase;
+}
+. tarjeta-info p {
+font-size: 0.85rem; color: #FF5500; font-weight: bold;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Inicio</h1>
+</header>
+<main class="grid-cuadros">
+<article class="tarjeta-stream">
+<a href=" primer-stream.html">
+<img src="Stream.jpg" alt= "Stream de themagmaboi">
+</a>
+<div class="tarjeta-info">
+<h2>Primera noticia </h2>
+<p>ver resumen</p>
+</div>
+</article>
+</main>
+</body>
+</html>
