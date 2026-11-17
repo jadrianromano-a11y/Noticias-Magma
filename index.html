@@ -68,6 +68,29 @@ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:
 .grid-galeria img {
 width: 100%; height: 200px; border-radius: 8px; border: 1px solid #2a2a2a; object-fit: cover;
 }
+
+/* ESTILOS NUEVOS PARA LOS CUADRITOS DE NOTICIAS */
+.cuadrito-noticia {
+background-color: #1f1f23; border-radius: 10px; padding: 20px; border: 1px solid #2a2a2a; margin-bottom: 15px; cursor: pointer; transition: transform 0.2s, border-color 0.2s;
+}
+.cuadrito-noticia:hover {
+border-color: #a970ff; transform: translateY(-2px);
+}
+.cuadrito-noticia h3 {
+color: #ffffff; font-size: 1.2rem; margin-bottom: 5px;
+}
+.cuadrito-noticia p {
+color: #adadb8; font-size: 0.9rem; margin: 0;
+}
+.detalle-noticia {
+display: none;
+}
+.btn-regresar {
+background-color: #a970ff; color: #ffffff; border: none; padding: 10px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; margin-bottom: 20px; transition: background 0.2s;
+}
+.btn-regresar:hover {
+background-color: #9147ff;
+}
 </style>
 </head>
 <body>
@@ -192,54 +215,40 @@ Gracias por leer espero hacer más.</p>
 </article>
 </section>
 
+<!-- SECCIÓN DE NOTICIAS CON CUADRITOS Y BOTÓN DE REGRESAR -->
 <section id="noticias" class="seccion">
-<article class="tarjeta-stream">
-  <h2>El plan de dormir temprano le vuelve a fracasar</h2>
-  <p class="fecha-noticia">Stream de ayer</p>
-  <p>Eso dijo el hermano ayer en el stream, andaba muy cansado 😫 con unas ganas de dormir porque se durmió a las pinches 7am y durmió como 6 o 7 horas literal el es la viva representación de el meme de dormir 3 horas.</p>
-  <img src="Dormir.jpg">
-  <img src="Dormir 2.jpg">
-  <p>Bros siempre que dice que está vez va a dormir temprano digo a lo mejor si es de verdad y resulta que entro al grupo y veo el plan de dormir temprano volvío a fracasar 
-  También lo puso en su grupo de WhatsApp si están a lo mejor ya lo vieron y si lo vieron, me da risa que lo primero que veo es el plan de dormir temprano fracasar</p>
-  <img src="WhatsApp 1.jpg">
-</article>
+  <!-- LISTA DE CUADRITOS (Menú principal de noticias) -->
+  <div id="lista-noticias">
+    <div class="cuadrito-noticia" onclick="verNoticia('noticia-1')">
+      <h3>El plan de dormir temprano le vuelve a fracasar</h3>
+      <p>Stream de ayer - Toca para leer completo</p>
+    </div>
 
-<article class="tarjeta-stream">
-  <h2>Noticias de última hora Magmaboi va a hacer pijamada con los chicos</h2>
-  <p class="fecha-noticia">Stream de hoy</p>
-  <img src="Mc2.jpg">
-  <img src="Mc2.jpg">
-  <p>Magmaboi dijo por un audio de WhatsApp que hoy haría un stream con los chicos de pijamada todo a la verga dice que estará muy divertido jugarán varios juegos vayan a verlo</p>
-</article>
-</section>
+    <div class="cuadrito-noticia" onclick="verNoticia('noticia-2')">
+      <h3>Noticias de última hora Magmaboi va a hacer pijamada con los chicos</h3>
+      <p>Stream de hoy - Toca para leer completo</p>
+    </div>
+  </div>
 
-<section id="galeria" class="seccion">
-<article class="tarjeta-stream">
-<h2>Galeria de la comunidad</h2>
-<div class="grid-galeria">
-<img src="comunidad 1.1.jpg" alt="Comunidad 1">
-<img src="comunidad 2.2.jpg" alt="Comunidad 2">
-<img src="comunidad 3.3.jpg" alt="Comunidad 3">
-<img src="comunidad 4.4.jpg" alt="Comunidad 4">
-<img src="comunidad 5.5.jpg" alt="Comunidad 5">
-<img src="comunidad 6.6.jpg" alt="Comunidad 6">
-</div>
-</article>
-</section>
-</main>
+  <!-- CONTENEDOR DE LAS NOTICIAS COMPLETAS (Ocultas por defecto) -->
+  <div id="detalle-noticias" class="detalle-noticia">
+    <button class="btn-regresar" onclick="regresarLista()">⬅ Volver a los cuadritos</button>
 
-<script>
-function cambiarPestana(event, idSeccion) {
-  const secciones = document.querySelectorAll('.seccion');
-  secciones.forEach(sec => sec.classList.remove('activa'));
+    <!-- Noticia 1 Completa -->
+    <div id="noticia-1" class="contenido-articulo" style="display:none;">
+      <article class="tarjeta-stream">
+        <h2>El plan de dormir temprano le vuelve a fracasar</h2>
+        <p class="fecha-noticia">Stream de ayer</p>
+        <p>Eso dijo el hermano ayer en el stream, andaba muy cansado 😫 con unas ganas de dormir porque se durmió a las pinches 7am y durmió como 6 o 7 horas literal el es la viva representación de el meme de dormir 3 horas.</p>
+        <img src="Dormir.jpg">
+        <img src="Dormir 2.jpg">
+        <p>Bros siempre que dice que está vez va a dormir temprano digo a lo mejor si es de verdad y resulta que entro al grupo y veo el plan de dormir temprano volvío a fracasar 
+        También lo puso en su grupo de WhatsApp si están a lo mejor ya lo vieron y si lo vieron, me da risa que lo primero que veo es el plan de dormir temprano fracasar</p>
+        <img src="WhatsApp 1.jpg">
+      </article>
+    </div>
 
-  const botones = document.querySelectorAll('.btn-pestana');
-  botones.forEach(btn => btn.classList.remove('activa'));
-
-  document.getElementById(idSeccion).classList.add('activa');
-  event.currentTarget.classList.add('activa');
-}
-</script>
-
-</body>
-</html>
+    <!-- Noticia 2 Completa -->
+    <div id="noticia-2" class="contenido-articulo" style="display:none;">
+      <article class="tarjeta-stream">
+       
