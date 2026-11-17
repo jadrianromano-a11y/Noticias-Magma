@@ -210,12 +210,11 @@ Un día ella y otra chica estaban haciendo unos ejercicios de matemáticas muy d
 Magma dijo que recordo la operación mochila que era básicamente que te revisan la mochila y magma hizo un chiste de tipo que tiene ahí joven, a un cuchillo a y una bomba, y usted un arm4 de fuego a y usted, espere un refresco que falta de respeto*se lo toma *lo voy a decomisar.
 Bueno también dijo que una vez había una dinámica de que te pasaban una pelota y tenías que decir lo que te gusta y no de las personas y de la nada se lo pasaron a ella y se puso a decir sobre sus. Amistades bien tóxicas y así se puso a llorar enfrente de todos de la verga.
 Bueno ahí termino el vídeo.
-Bueno ya desde hierba se puso a jugar... (se mantiene tu texto intacto)
+Bueno ya desde aquí se puso  a jugar Minecraft saga el solo y se puso a construir y después y se fue a comer y en fin terminamos el stream.
 Gracias por leer espero hacer más.</p> 
 </article>
 </section>
 
-<!-- SECCIÓN DE NOTICIAS CON CUADRITOS Y BOTÓN DE REGRESAR -->
 <section id="noticias" class="seccion">
   <!-- LISTA DE CUADRITOS (Menú principal de noticias) -->
   <div id="lista-noticias">
@@ -230,11 +229,11 @@ Gracias por leer espero hacer más.</p>
     </div>
   </div>
 
-  <!-- CONTENEDOR DE LAS NOTICIAS COMPLETAS (Ocultas por defecto) -->
+  
   <div id="detalle-noticias" class="detalle-noticia">
-    <button class="btn-regresar" onclick="regresarLista()">⬅ Volver a los cuadritos</button>
+    <button class="btn-regresar" onclick="regresarLista()"> </button>
 
-    <!-- Noticia 1 Completa -->
+    
     <div id="noticia-1" class="contenido-articulo" style="display:none;">
       <article class="tarjeta-stream">
         <h2>El plan de dormir temprano le vuelve a fracasar</h2>
@@ -248,7 +247,66 @@ Gracias por leer espero hacer más.</p>
       </article>
     </div>
 
-    <!-- Noticia 2 Completa -->
+    
     <div id="noticia-2" class="contenido-articulo" style="display:none;">
       <article class="tarjeta-stream">
-        <h2>Noticias de última hora Magmaboi va a hacer pijamada con los chicos</h
+      <h2>Noticias de última hora Magmaboi va a hacer pijamada con los chicos</h2>
+        <p class="fecha-noticia">Stream de hoy</p>
+        <img src="Mc2.jpg">
+        <img src="Mc2.jpg">
+        <p>Magmaboi dijo por un audio de WhatsApp que hoy haría un stream con los chicos de pijamada todo a la verga dice que estará muy divertido jugarán varios juegos vayan a verlo</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" class="seccion">
+<article class="tarjeta-stream">
+<h2>Galeria de la comunidad</h2>
+<div class="grid-galeria">
+<img src="comunidad 1.1.jpg" alt="Comunidad 1">
+<img src="comunidad 2.2.jpg" alt="Comunidad 2">
+<img src="comunidad 3.3.jpg" alt="Comunidad 3">
+<img src="comunidad 4.4.jpg" alt="Comunidad 4">
+<img src="comunidad 5.5.jpg" alt="Comunidad 5">
+<img src="comunidad 6.6.jpg" alt="Comunidad 6">
+</div>
+</article>
+</section>
+</main>
+
+<script>
+function cambiarPestana(event, idSeccion) {
+  const secciones = document.querySelectorAll('.seccion');
+  secciones.forEach(sec => sec.classList.remove('activa'));
+
+  const botones = document.querySelectorAll('.btn-pestana');
+  botones.forEach(btn => btn.classList.remove('activa'));
+
+  document.getElementById(idSeccion).classList.add('activa');
+  event.currentTarget.classList.add('activa');
+
+  if (idSeccion !== 'noticias') {
+    regresarLista();
+  }
+}
+
+function verNoticia(idNoticia) {
+  document.getElementById('lista-noticias').style.display = 'none';
+  document.getElementById('detalle-noticias').style.display = 'block';
+
+  const articulos = document.querySelectorAll('.contenido-articulo');
+  articulos.forEach(art => art.style.display = 'none');
+
+  document.getElementById(idNoticia).style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+function regresarLista() {
+  document.getElementById('detalle-noticias').style.display = 'none';
+  document.getElementById('lista-noticias').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
