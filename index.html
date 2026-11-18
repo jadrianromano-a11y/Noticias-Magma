@@ -12,10 +12,10 @@ body {
 font-family: Arial, sans-serif; background-color: #121212; color: #e0e0e0; padding-bottom: 40px;
 }
 header {
-text-align: center; padding: 25px 15px; background-color: #18181b; border-bottom: 1px solid #2a2a2a;
+text-align: center; padding: 25px 15px; background-color: #18181b; border-bottom: 2px solid #ff7700;
 }
 header h1 {
-color: #a970ff; font-size: 1.8rem; margin-bottom: 5px;
+color: #ff7700; font-size: 1.8rem; margin-bottom: 5px;
 }
 header p {
 color: #adadb8; font-size: 0.95rem;
@@ -30,7 +30,7 @@ nav.pestanas button:hover {
 color: #ffffff;
 }
 nav.pestanas button.activa {
-color: #a970ff; border-bottom: 3px solid #a970ff;
+color: #ff7700; border-bottom: 3px solid #ff7700;
 }
 main {
 max-width: 800px; margin: 20px auto; padding: 0 15px;
@@ -48,7 +48,7 @@ background-color: #1f1f23; border-radius: 10px; padding: 20px; border: 1px solid
 color: #ffffff; font-size: 1.4rem; margin-bottom: 12px;
 }
 .tarjeta-stream h3, .tarjeta-stream h4, .tarjeta-stream h5, .tarjeta-stream h6 {
-color: #a970ff; font-size: 1.1rem; margin-top: 15px; margin-bottom: 10px;
+color: #ff7700; font-size: 1.1rem; margin-top: 15px; margin-bottom: 10px;
 }
 .tarjeta-stream p {
 line-height: 1.6; color: #d0d0d0; margin-bottom: 12px; font-size: 0.95rem;
@@ -68,13 +68,11 @@ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:
 .grid-galeria img {
 width: 100%; height: 200px; border-radius: 8px; border: 1px solid #2a2a2a; object-fit: cover;
 }
-
-/* ESTILOS PARA LOS CUADRITOS DE NOTICIAS */
 .cuadrito-noticia {
-background-color: #1f1f23; border-radius: 10px; padding: 20px; border: 1px solid #2a2a2a; margin-bottom: 15px; cursor: pointer; transition: transform 0.2s, border-color 0.2s;
+background-color: #1f1f23; border-radius: 10px; padding: 20px; border: 1px solid #2a2a2a; border-left: 5px solid #ff7700; margin-bottom: 15px; cursor: pointer; transition: transform 0.2s, border-color 0.2s;
 }
 .cuadrito-noticia:hover {
-border-color: #a970ff; transform: translateY(-2px);
+border-color: #ff7700; transform: translateY(-2px);
 }
 .cuadrito-noticia h3 {
 color: #ffffff; font-size: 1.2rem; margin-bottom: 5px;
@@ -86,10 +84,10 @@ color: #adadb8; font-size: 0.9rem; margin: 0;
 display: none;
 }
 .btn-regresar {
-background-color: #a970ff; color: #ffffff; border: none; padding: 10px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; margin-bottom: 20px; transition: background 0.2s;
+background-color: #ff7700; color: #ffffff; border: none; padding: 10px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; margin-bottom: 20px; transition: background 0.2s;
 }
 .btn-regresar:hover {
-background-color: #9147ff;
+background-color: #e06600;
 }
 </style>
 </head>
@@ -118,7 +116,7 @@ En la seccion de galería subiré fotos de lo que suben los bros en comunidad ho
  
 <div class="contador-visitas">
 <p>Visitas de la pagina:</p>
-<img src="https://api.visitorbadge.io/api/combined?path=jadrianromano-a11y.github.io%2FNoticias-Magma&countColor=%23a970ff&style=flat" alt="Contador de Visitas">
+<img src="https://api.visitorbadge.io/api/combined?path=jadrianromano-a11y.github.io%2FNoticias-Magma&countColor=%23ff7700&style=flat" alt="Contador de Visitas">
 </div>
 </article>
 </section>
@@ -216,7 +214,6 @@ Gracias por leer espero hacer más.</p>
 </section>
 
 <section id="noticias" class="seccion">
-  <!-- LISTA DE CUADRITOS (Menú principal de noticias) -->
   <div id="lista-noticias">
     <div class="cuadrito-noticia" onclick="verNoticia('noticia-1')">
       <h3>El plan de dormir temprano le vuelve a fracasar</h3>
@@ -229,11 +226,9 @@ Gracias por leer espero hacer más.</p>
     </div>
   </div>
 
-  
   <div id="detalle-noticias" class="detalle-noticia">
-    <button class="btn-regresar" onclick="regresarLista()"> </button>
+    <button class="btn-regresar" onclick="regresarLista()">⬅ Volver</button>
 
-    
     <div id="noticia-1" class="contenido-articulo" style="display:none;">
       <article class="tarjeta-stream">
         <h2>El plan de dormir temprano le vuelve a fracasar</h2>
@@ -247,10 +242,9 @@ Gracias por leer espero hacer más.</p>
       </article>
     </div>
 
-    
     <div id="noticia-2" class="contenido-articulo" style="display:none;">
       <article class="tarjeta-stream">
-      <h2>Noticias de última hora Magmaboi va a hacer pijamada con los chicos</h2>
+        <h2>Noticias de última hora Magmaboi va a hacer pijamada con los chicos</h2>
         <p class="fecha-noticia">Stream de hoy</p>
         <img src="Mc2.jpg">
         <img src="Mc2.jpg">
