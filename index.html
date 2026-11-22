@@ -3,217 +3,209 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noticias y Resumenes de Streams</title>
+<title>Noticias de Streams - Magmaboi</title>
 <style>
 * {
-box-sizing: border-box; margin: 0; padding: 0;
+  box-sizing: border-box; margin: 0; padding: 0;
 }
 body {
-font-family: Arial, sans-serif; background-color: #121212; color: #e0e0e0; padding-bottom: 40px;
+  font-family: Arial, sans-serif; background-color: #121212; color: #e0e0e0; padding-bottom: 40px;
 }
 header {
-text-align: center; padding: 25px 15px; background-color: #18181b; border-bottom: 2px solid #ff7700;
+  text-align: center; padding: 25px 15px; background-color: #18181b; border-bottom: 2px solid #ff7700;
 }
 header h1 {
-color: #ff7700; font-size: 1.8rem; margin-bottom: 5px;
+  color: #ff7700; font-size: 1.8rem; margin-bottom: 5px;
 }
 header p {
-color: #adadb8; font-size: 0.95rem;
+  color: #adadb8; font-size: 0.95rem;
 }
 nav.pestanas {
-display: flex; justify-content: center; background-color: #18181b; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #2a2a2a;
+  display: flex; flex-wrap: wrap; justify-content: center; background-color: #18181b; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #2a2a2a;
 }
 nav.pestanas button {
-background: none; border: none; color: #adadb8; padding: 14px 18px; font-size: 0.95rem; font-weight: bold; cursor: pointer; transition: all 0.2s ease; border-bottom: 3px solid transparent;
+  background: none; border: none; color: #adadb8; padding: 14px 18px; font-size: 0.95rem; font-weight: bold; cursor: pointer; transition: all 0.2s ease; border-bottom: 3px solid transparent;
 }
 nav.pestanas button:hover {
-color: #ffffff;
+  color: #ffffff;
 }
 nav.pestanas button.activa {
-color: #ff7700; border-bottom: 3px solid #ff7700;
+  color: #ff7700; border-bottom: 3px solid #ff7700;
 }
 main {
-max-width: 800px; margin: 20px auto; padding: 0 15px;
+  max-width: 800px; margin: 20px auto; padding: 0 15px;
 }
 .seccion {
-display: none;
+  display: none;
 }
 .seccion.activa {
-display: block;
+  display: block;
 }
 .tarjeta-stream {
-background-color: #1f1f23; border-radius: 10px; padding: 20px; border: 1px solid #2a2a2a; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); margin-bottom: 20px;
+  background-color: #1f1f23; border-radius: 10px; padding: 20px; border: 1px solid #2a2a2a; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); margin-bottom: 20px;
 }
 .tarjeta-stream h2 {
-color: #ffffff; font-size: 1.4rem; margin-bottom: 12px;
+  color: #ffffff; font-size: 1.4rem; margin-bottom: 12px;
 }
 .tarjeta-stream h3, .tarjeta-stream h4, .tarjeta-stream h5, .tarjeta-stream h6 {
-color: #ff7700; font-size: 1.1rem; margin-top: 15px; margin-bottom: 10px;
+  color: #ff7700; font-size: 1.1rem; margin-top: 15px; margin-bottom: 10px;
 }
 .tarjeta-stream p {
-line-height: 1.6; color: #d0d0d0; margin-bottom: 12px; font-size: 0.95rem;
+  line-height: 1.6; color: #d0d0d0; margin-bottom: 12px; font-size: 0.95rem;
 }
 .tarjeta-stream img {
-width: 100%; border-radius: 8px; margin-top: 10px; display: block;
+  width: 100%; border-radius: 8px; margin-top: 10px; display: block;
+}
+.fecha-noticia {
+  color: #ff7700 !important; font-weight: bold; font-size: 0.85rem !important;
 }
 .contador-visitas {
-text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid #2a2a2a;
+  text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid #2a2a2a;
 }
 .contador-visitas p {
-color: #adadb8; font-size: 0.85rem; margin-bottom: 8px;
+  color: #adadb8; font-size: 0.85rem; margin-bottom: 8px;
 }
 .grid-galeria {
-display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;
 }
 .grid-galeria img {
-width: 100%; height: 200px; border-radius: 8px; border: 1px solid #2a2a2a; object-fit: cover;
+  width: 100%; height: 200px; border-radius: 8px; border: 1px solid #2a2a2a; object-fit: cover;
 }
 .cuadrito-noticia {
-background-color: #1f1f23; border-radius: 10px; padding: 20px; border: 1px solid #2a2a2a; border-left: 5px solid #ff7700; margin-bottom: 15px; cursor: pointer; transition: transform 0.2s, border-color 0.2s;
+  background-color: #1f1f23; border-radius: 10px; padding: 20px; border: 1px solid #2a2a2a; border-left: 5px solid #ff7700; margin-bottom: 15px; cursor: pointer; transition: transform 0.2s, border-color 0.2s;
 }
 .cuadrito-noticia:hover {
-border-color: #ff7700; transform: translateY(-2px);
+  border-color: #ff7700; transform: translateY(-2px);
 }
 .cuadrito-noticia h3 {
-color: #ffffff; font-size: 1.2rem; margin-bottom: 5px;
+  color: #ffffff; font-size: 1.2rem; margin-bottom: 5px;
 }
 .cuadrito-noticia p {
-color: #adadb8; font-size: 0.9rem; margin: 0;
+  color: #adadb8; font-size: 0.9rem; margin: 0;
 }
 .detalle-noticia {
-display: none;
+  display: none;
 }
 .btn-regresar {
-background-color: #ff7700; color: #ffffff; border: none; padding: 10px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; margin-bottom: 20px; transition: background 0.2s;
+  background-color: #ff7700; color: #ffffff; border: none; padding: 10px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; margin-bottom: 20px; transition: background 0.2s;
 }
 .btn-regresar:hover {
-background-color: #e06600;
+  background-color: #e06600;
 }
 </style>
 </head>
 <body>
 <header>
-<h1>Noticias y Resumenes</h1>
-<p>Tu portal para estar al dia con las noticias y resumenes</p>
-<nav class="pestanas">
-<button class="btn-pestana activa" onclick="cambiarPestana(event, 'inicio')">Inicio</button>
-<button class="btn-pestana" onclick="cambiarPestana(event, 'resumenes')">Resumenes</button>
-<button class="btn-pestana" onclick="cambiarPestana(event, 'noticias')">Noticias</button>
-<button class="btn-pestana" onclick="cambiarPestana(event, 'galeria')">Galeria</button>
-</nav>
+  <h1>Noticias</h1>
+  <p>Tu portal para estar al dia con las noticias de Magmaboi</p>
+  <nav class="pestanas">
+    <button type="button" class="btn-pestana activa" onclick="cambiarPestana(event, 'inicio')">Inicio</button>
+    <button type="button" class="btn-pestana" onclick="cambiarPestana(event, 'noticias')">Noticias</button>
+    <button type="button" class="btn-pestana" onclick="cambiarPestana(event, 'galeria')">Galeria de comunidad</button>
+  </nav>
 </header>
 
 <main>
-<section id="inicio" class="seccion activa">
-<article class="tarjeta-stream">
-<h2>¡Bienvenidos a su chismoso de confianza</h2>
-<p>Esta pagina fue creada para recopilar lo mas reciente en los streams de Magmaboi. Aqui encontraras:</p>
-<p><strong>Resumenes:</strong> Encontraras los streams resumidos con todos los detalles y bien resumido</p>
-<p><strong>Noticias</strong><br>Aquí encontrarán todas las noticias de última hora intentaré hacer noticias todos los días.</p>
-<p><strong>Galería</strong><br>En la seccion de galería subiré fotos de lo que suben los bros en comunidad hoy subiré pocas fotos 5 y después más</p>
+  <section id="inicio" class="seccion activa">
+    <article class="tarjeta-stream">
+      <h2>¡Bienvenidos a su chismoso de confianza</h2>
+      <p>Esta pagina fue creada para recopilar lo mas reciente en los streams de Magmaboi. Aqui encontraras:</p>
+      <p><strong>Noticias</strong><br>Aquí encontrarán todas las noticias de última hora intentaré hacer noticias todos los días.</p>
+      <p><strong>Galería de comunidad</strong><br>En la seccion de galería subiré fotos de lo que suben los bros en comunidad hoy subiré pocas fotos 5 y después más</p>
 
-<div class="contador-visitas">
-<p>Visitas de la pagina:</p>
-<img src="https://api.visitorbadge.io/api/combined?path=jadrianromano-a11y.github.io%2FNoticias-Magma&countColor=%23ff7700&style=flat" alt="Contador de Visitas">
-</div>
-</article>
-</section>
+      <div class="contador-visitas">
+        <p>Visitas de la pagina:</p>
+        <img src="https://api.visitorbadge.io/api/combined?path=jadrianromano-a11y.github.io%2FNoticias-Magma&countColor=%23ff7700&style=flat" alt="Contador de Visitas">
+      </div>
+    </article>
+  </section>
 
-<section id="resumenes" class="seccion">
-<article class="tarjeta-stream">
-<h3>Primera noticia</h3>
-<p>Hola bros bienvenidos a la primera noticia de la página web, estare subiendo noticias cada semana. Por cada cuadro de noticias estara un 1 stream de la semana . tambien hare uno de tgreys cuandose pudiera.</p>
+  <section id="noticias" class="seccion">
+    <div id="lista-noticias">
+      <div class="cuadrito-noticia" onclick="verNoticia('noticia-1')">
+        <h3>El plan de dormir temprano le vuelve a fracasar</h3>
+        <p>Stream de ayer - Toca para leer completo</p>
+      </div>
 
-<img src="Stream.jpg">
+      <div class="cuadrito-noticia" onclick="verNoticia('noticia-2')">
+        <h3>Noticias de última hora Magmaboi va a hacer pijamada con los chicos</h3>
+        <p>Stream de hoy - Toca para leer completo</p>
+      </div>
 
-<p>El ultimo stream fue hace 4 semanas titulado: Minecraf pero se genera el mundo si caminas+ Roblox Monochroma+ Failsroom y también 2 reacciones.</p>
-<p>Gracias por leer espero hacer más.</p>
-</article>
-</section>
+      <div class="cuadrito-noticia" onclick="verNoticia('noticia-3')">
+        <h3>Magmaboi tiene la Play 5 y el GTA 6</h3>
+        <p>Viernes 20 de noviembre - Toca para leer completo</p>
+      </div>
 
-<section id="noticias" class="seccion">
-  <div id="lista-noticias">
-    <div class="cuadrito-noticia" onclick="verNoticia('noticia-1')">
-      <h3>El plan de dormir temprano le vuelve a fracasar</h3>
-      <p>Stream de ayer - Toca para leer completo</p>
+      <div class="cuadrito-noticia" onclick="verNoticia('noticia-4')">
+        <h3>PINCHE PELON</h3>
+        <p>21 de Noviembre - Toca para leer completo</p>
+      </div>
     </div>
 
-    <div class="cuadrito-noticia" onclick="verNoticia('noticia-2')">
-      <h3>Noticias de última hora Magmaboi va a hacer pijamada con los chicos</h3>
-      <p>Stream de hoy - Toca para leer completo</p>
+    <div id="detalle-noticias" class="detalle-noticia">
+      <button type="button" class="btn-regresar" onclick="regresarLista()">⬅ Volver</button>
+
+      <div id="noticia-1" class="contenido-articulo" style="display:none;">
+        <article class="tarjeta-stream">
+          <h2>El plan de dormir temprano le vuelve a fracasar</h2>
+          <p class="fecha-noticia">Stream de ayer</p>
+          <p>Eso dijo el hermano ayer en el stream, andaba muy cansado con unas ganas de dormir porque se durmió a las 7am y durmió como 6 o 7 horas.</p>
+          <img src="Dormir.jpg" alt="Dormir 1">
+          <img src="Dormir 2.jpg" alt="Dormir 2">
+          <p>Bros siempre que dice que esta vez va a dormir temprano digo que a lo mejor sí es de verdad y resulta que entro al grupo y veo el plan de dormir temprano volver a fracasar.</p>
+          <img src="WhatsApp 1.jpg" alt="WhatsApp 1">
+        </article>
+      </div>
+
+      <div id="noticia-2" class="contenido-articulo" style="display:none;">
+        <article class="tarjeta-stream">
+          <h2>Noticias de última hora Magmaboi va a hacer pijamada con los chicos</h2>
+          <p class="fecha-noticia">Stream de hoy</p>
+          <img src="Mc2.jpg" alt="Mc2 1">
+          <img src="Mc2.jpg" alt="Mc2 2">
+          <p>Magmaboi dijo por un audio de WhatsApp que hoy haría un stream con los chicos de pijamada. Dice que estará muy divertido y que jugarán varios juegos.</p>
+        </article>
+      </div>
+
+      <div id="noticia-3" class="contenido-articulo" style="display:none;">
+        <article class="tarjeta-stream">
+          <h2>MAGMA TIENE LA PLAY 5 Y EL GTA 6</h2>
+          <p class="fecha-noticia">viernes 20 de Noviembre</p>
+          <p>Ayer, magmaboi empezo el stream como siempre saludando a los bros normal, antes de seguir magma dijo: "bros que creen, me compre la Play 5 y el nuevo GTA 6", asi es que magmaboi puso en su grupo de whathsapp antes de prender el stream que se lo habia comprado, ya aprovecho y compro el GTA.</p>
+          <p>dijo que el lo compro el dia anterior osea mas o menos el jueves dijo que fue a la tienda a hacer la fila para comprar la Play y en frente de el habia un chico con ropa elegante asi de que de traje y atras un chiconormal de jeans, y magma todod despeinado mal dormido hecho verga.</p>
+          <p>Dijo que el chico de alante dijo "hola quiero la Play 5 por favor2 con un tono asi de rico "si caballero ya se la traigo" pip pip listo muchas gracias. antes de magma pasar le pregunto al otro chico que que hiba a hacer osea comprar, y el chico le dijo que solo venia a retirar el GTA porque justo este año se mudo con su novia y adoptaron u perro y pensaban en casarse...hmmm qu bueno hermano(magma por dentro: a pos me restregaron en cara el felices por siempre) pero en fin el ya tenia el tikec, ahh ok le dijo magma.</p>
+          <p>Magma despues le toco y el plan era comprar la Play 5 pero le dijeron que tambien tenian el GTA asi que magma penso en bueno dos pajaros de un tiroloco</p>
+        </article>
+      </div>
+
+      <div id="noticia-4" class="contenido-articulo" style="display:none;">
+        <article class="tarjeta-stream">
+          <h4>PINCHE PELON</h4>
+          <p class="fecha-noticia">21 de Noviembre</p>
+          <p>Pinche pelón</p>
+          <p>Después de que magmaboi saliera de comprar la Play y el GTA, va a una tienda que quedaba en frente a comprar más juegos.</p>
+          <p>Entra y había un señor acomodando juegos y le dice "que necesitas"(en tono odioso), y magma le dice que unos juegos, el señor amablemente dice "ahhgg" osea se molesto, Magmaboi para que pregunta si se va a enojar bueno magma le dice los juegos y los va a buscar, mientras magma va a la caja a esperar, a su lado había una pareja de señores y un empleado atendiendolos, el empleado le mira la Play y le dice oye cuánto te costó no es para nada malo si no para saber cuánto lo vende la competencia, magmaboi le dice que no sabe porque el no pregunto precio solo lo compro, cuando magma dijo eso los señores empezaron a secretearse y a magma le dió gracia eso.</p>
+          <p>Bueno por fin llegó el pelón con los juegos y le dice "estos son los juegos" magma lo revisa y le dice que si, antes de eso el pelón dice Algo más, no gracias dice magma ahhgg, son 6 pesos, okey pip pup pip pu- oye nosotros también vendemos Plays por si te interesa... Bro magma literal la tenía debajo del brazo, pero magma aún así le dijo que no gracias(PINCHE PENDEJO) bueno paga y le dice otra vez, algo más... NO gracias, o pero tienes una bolsa para meter los juegos, y el pelón dice "ahg hermano me fueras dicho antes la bolsa cuesta 5 pesos"...</p>
+          <p>No ya no importa yo los llevo en la mano(PINCHE PELON) Y para cerveza del pastel le dice está mística frase "Algo mas"... NO GRACIAS</p>
+        </article>
+      </div>
     </div>
+  </section>
 
-    <div class="cuadrito-noticia" onclick="verNoticia('noticia-3')">
-      <h3>Magmaboi tiene la Play 5 y el GTA 6</h3>
-      <p>Viernes 20 de noviembre - Toca para leer completo</p>
-    </div>
-    <div id="noticia-4" class="contenido-articulo" style="display:none;">
-  <article class="tarjeta-stream">
-    <h4>PINCHE PELON</h4>
-    <p class=<21 de Noviembre></p>
-    <p>Pinche pelón
-Después de que magmaboi saliera de comprar la Play y el GTA, va a una tienda que quedaba en frente a comprar más juegos.
-Entra y había un señor acomodando juegos y le dice "que necesitas"(en tono odioso), y magma le dice que unos juegos, el señor amablemente dice "ahhgg" osea se molesto, Magmaboi para que pregunta si se va a enojar bueno magma le dice los juegos y los va a buscar, mientras magma va a la caja a esperar, a su lado había una pareja de señores y un empleado atendiendolos, el empleado le mira la Play y le dice oye cuánto te costó no es para nada malo si no para saber cuánto lo vende la competencia, magmaboi le dice que no sabe porque el no pregunto precio solo lo compro, cuando magma dijo eso los señores empezaron a secretearse y a magma le dió gracia eso.
-Bueno por fin llegó el pelón con los juegos y le dice "estos son los juegos" magma lo revisa y le dice que si, antes de eso el pelón dice Algo más, no gracias dice magma ahhgg, son 6 pesos, okey pip pup pip pu- oye nosotros también vendemos Plays por si te interesa... Bro magma literal la tenía debajo del brazo, pero magma aún así le dijo que no gracias(PINCHE PENDEJO) bueno paga y le dice otra vez, algo más... NO gracias, o pero tienes una bolsa para meter los juegos, y el pelón dice "ahg hermano me fueras dicho antes la bolsa cuesta 5 pesos"...
-No ya no importa yo los llevo en la mano(PINCHE PELON) Y para cerveza del pastel le dice está mística frase "Algo mas"... NO GRACIAS </p>
-  </article>
-    </div>
-  </div>
-
-  <div id="detalle-noticias" class="detalle-noticia">
-    <button class="btn-regresar" onclick="regresarLista()">⬅ Volver</button>
-
-    <div id="noticia-1" class="contenido-articulo" style="display:none;">
-      <article class="tarjeta-stream">
-        <h2>El plan de dormir temprano le vuelve a fracasar</h2>
-        <p class="fecha-noticia">Stream de ayer</p>
-        <p>Eso dijo el hermano ayer en el stream, andaba muy cansado con unas ganas de dormir porque se durmió a las 7am y durmió como 6 o 7 horas.</p>
-        <img src="Dormir.jpg">
-        <img src="Dormir 2.jpg">
-        <p>Bros siempre que dice que esta vez va a dormir temprano digo que a lo mejor sí es de verdad y resulta que entro al grupo y veo el plan de dormir temprano volver a fracasar.</p>
-        <img src="WhatsApp 1.jpg">
-      </article>
-    </div>
-
-    <div id="noticia-2" class="contenido-articulo" style="display:none;">
-      <article class="tarjeta-stream">
-        <h2>Noticias de última hora Magmaboi va a hacer pijamada con los chicos</h2>
-        <p class="fecha-noticia">Stream de hoy</p>
-        <img src="Mc2.jpg">
-        <img src="Mc2.jpg">
-        <p>Magmaboi dijo por un audio de WhatsApp que hoy haría un stream con los chicos de pijamada. Dice que estará muy divertido y que jugarán varios juegos.</p>
-      </article>
-    </div>
-
-    <div id="noticia-3" class="contenido-articulo" style="display:none;">
-      <article class="tarjeta-stream">
-         <h2MAGMA TIENE LA PLAY 5 Y EL GTA 6></h2>
-    <p class="fecha-noticia">viernes 20 de Noviembre/p>
-    <p>
-Ayer, magmaboi empezo el stream como siempre saludando a los bros normal, antes de seguir magma dijo: "bros que creen, me compre la Play 5 y el nuevo GTA 6", asi es que magmaboi puso en su grupo de whathsapp antes de prender el stream que se lo habia comprado, ya aprovecho y compro el GTA.
-
-dijo que el lo compro el dia anterior osea mas o menos el jueves dijo que fue a la tienda a hacer la fila para comprar la Play y en frente de el habia un chico con ropa elegante asi de que de traje y atras un chiconormal de jeans, y magma todod despeinado mal dormido hecho verga.
-
-Dijo que el chico de alante dijo "hola quiero la Play 5 por favor2 con un tono asi de rico "si caballero ya se la traigo" pip pip listo muchas gracias. antes de magma pasar le pregunto al otro chico que que hiba a hacer osea comprar, y el chico le dijo que solo venia a retirar el GTA porque justo este año se mudo con su novia y adoptaron u  perro y pensaban en casarse...hmmm qu bueno hermano(magma por dentro: a pos me restregaron en cara el felices por siempre) pero en fin el ya tenia el tikec, ahh ok le dijo magma.
-Magma despues le toco y el plan era comprar la Play 5 pero le dijeron que tambien tenian el GTA asi que magma penso  en bueno dos pajaros de un tiroloco</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="galeria" class="seccion">
-<article class="tarjeta-stream">
-<h2>Galeria de la comunidad</h2>
-<div class="grid-galeria">
-<img src="comunidad 1.1.jpg" alt="Comunidad 1">
-<img src="comunidad 2.2.jpg" alt="Comunidad 2">
-<img src="comunidad 3.3.jpg" alt="Comunidad 3">
-<img src="comunidad 4.4.jpg" alt="Comunidad 4">
-<img src="comunidad 5.5.jpg" alt="Comunidad 5">
-<img src="comunidad 6.6.jpg" alt="Comunidad 6">
-</div>
-</article>
-</section>
+  <section id="galeria" class="seccion">
+    <article class="tarjeta-stream">
+      <h2>Galeria de comunidad</h2>
+      <div class="grid-galeria">
+        <img src="comunidad 1.1.jpg" alt="Comunidad 1">
+        <img src="comunidad 2.2.jpg" alt="Comunidad 2">
+        <img src="comunidad 3.3.jpg" alt="Comunidad 3">
+        <img src="comunidad 4.4.jpg" alt="Comunidad 4">
+        <img src="comunidad 5.5.jpg" alt="Comunidad 5">
+        <img src="comunidad 6.6.jpg" alt="Comunidad 6">
+      </div>
+    </article>
+  </section>
 </main>
 
 <script>
